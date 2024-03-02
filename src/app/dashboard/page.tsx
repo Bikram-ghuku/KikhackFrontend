@@ -168,7 +168,7 @@ export default function UserPage() {
           width={40}
         />
         <h2 className=" text-lg font-bold">
-          {process.browser ? localStorage.getItem("name") ?? "User" : "User"}
+          {typeof window !== 'undefined' ? localStorage.getItem("name") ?? "User" : "User"}
           {/* {localStorage.getItem("name") ?? "User"} */}
         </h2>
       </div>
@@ -189,11 +189,11 @@ export default function UserPage() {
         <div className="flex justify-between">
           <QuickInfoTile
             title="Department"
-            value={localStorage.getItem("department") ?? ""}
+            value={typeof window !== 'undefined' ? localStorage.getItem("department") ?? "" : ""}
           />
           <QuickInfoTile
             title="CGPA"
-            value={localStorage.getItem("cgpa") ?? "0.00"}
+            value={typeof window !== 'undefined' ? localStorage.getItem("cgpa") ?? "0.00" : ""}
           />
           <QuickInfoTile
             title="Orientation"
@@ -293,7 +293,7 @@ export default function UserPage() {
         <div className="mt-2 w-32 rounded bg-black p-2 font-semibold text-white">
           <button
             onClick={async () => {
-              localStorage.clear();
+              typeof window !== 'undefined' ? localStorage.clear() : null
               await navigateToHome();
             }}
           >
