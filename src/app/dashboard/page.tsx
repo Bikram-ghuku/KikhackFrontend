@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unsafe-call */
-"use client";
+'use client'
 
 import { use, useEffect, useState } from "react";
 import QuickInfoTile from "./quick_info";
@@ -168,7 +168,7 @@ export default function UserPage() {
           width={40}
         />
         <h2 className=" text-lg font-bold">
-          {window.localStorage.getItem("name") ?? "User"}
+          {process.browser ? localStorage.getItem("name") ?? "User" : "User"}
           {/* {localStorage.getItem("name") ?? "User"} */}
         </h2>
       </div>

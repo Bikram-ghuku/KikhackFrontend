@@ -23,7 +23,7 @@ interface Course {
 }
 
 export async function getRecommendations(data: string[], pref: number) {
-  const response = await fetch("http://127.0.0.1:5000/", {
+  const response = await fetch("http://54.82.32.173:5000/", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
